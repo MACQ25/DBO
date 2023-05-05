@@ -13,5 +13,29 @@ var firebaseConfig = {
 
 (function(){
     console.log("henlo");
-    firebase.auth().signInAnonymously();
+    let playerId;
+    let playerRef;
+
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log(user);
+      if(user){
+        playerId = user.uid;
+        playerRef = firebase.database().ref(`players/${playerId}`);
+        playerRef.set({
+          name:"Drew",
+        });
+        playerRef.onDisconnect().remove();
+      }
+      else {
+        console.log("Logged out");
+      }
+    });
+
+
+    firebase.auth().signInAnonymously().catch((error) => {
+      var code = error.code;
+      var message = error.message;
+      console.log(code, message)
+    });
+
 })();
