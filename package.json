@@ -1,0 +1,11 @@
+{
+  "name": "da-big-wan",
+  "version": "1.0.0",
+  "description": "Used for a project made by a novice programmer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mauricio Canul",
+  "license": "ISC"
+}
