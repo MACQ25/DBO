@@ -12,7 +12,6 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
 (function(){
-    console.log("henlo");
     let playerId;
     let playerRef;
 
@@ -21,11 +20,6 @@ var firebaseConfig = {
       if(user){
         playerId = user.uid;
         playerRef = firebase.database().ref(`players/${playerId}`);
-        playerRef.set({
-          name:"Drew",
-          skitarii: "yes",
-          gaming: "also",
-        });
         playerRef.onDisconnect().remove();
       }
       else {
